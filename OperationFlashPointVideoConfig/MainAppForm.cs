@@ -1,25 +1,22 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
-using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Linq;
 
 namespace OperationFlashPointVideoConfig
 {
-    public partial class Form1 : Form
+    public partial class MainAppForm : Form
     {
         string myDocumentsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
         string ofdrPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\OFDR\hardwaresettings";
 
         string hardwareSettingsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\OFDR\hardwaresettings\hardware_settings_info.xml";
         string configSettingsPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\OFDR\hardwaresettings\hardware_settings_config.xml";
+        string highResToolConfigXmlPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\My Games\OFDR\HighResToolConfig.xml";
 
         private List<DisplayMode> displayModes = new List<DisplayMode>();
         private List<int> refreshRates = new List<int>();
@@ -29,11 +26,31 @@ namespace OperationFlashPointVideoConfig
         private bool fullscreen = false;
         private bool vsync = false;
 
-        public Form1()
+        private bool steamVersion = true;
+        private string nonSteamVersionPath = @"C:\Program Files (x86)\Codemasters\Operation Flashpoint - Dragon Rising\OFDR.exe";
+
+        private static readonly string steamAppId = "12830"; // Operation Flashpoint: Dragon Rising
+        private string steamUri = $"steam://run/" + steamAppId;
+
+        private ConfigForm configForm;
+
+        public MainAppForm()
         {
             InitializeComponent();
+            getAppSettings();
             detectResolutions();
             getRefreshRates();
+        }
+
+        public void setNonSteamVersionPath(string path)
+        {
+            nonSteamVersionPath = path;
+            saveAppSettings();
+        }
+
+        public string getNoneSteamVersionPath()
+        {
+            return nonSteamVersionPath;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -60,7 +77,60 @@ namespace OperationFlashPointVideoConfig
             comboBoxRefresh.SelectedIndex = refreshRates.FindIndex(rr => rr == currentRefreshRate);
             checkBoxFullscreen.Checked = fullscreen;
             checkBoxVsync.Checked = vsync;
+            checkBoxSteam.Checked = steamVersion;
         }
+
+        private void creatAppSettingsXml()
+        {
+            try
+            {
+                XDocument xDoc = new XDocument(
+                    new XElement("settings",
+                        new XElement("SteamVersion", true),
+                        new XElement("NonSteamExecPAth", "\"C:\\Program Files (x86)\\Codemasters\\Operation Flashpoint - Dragon Rising\\OFDR.exe\"")
+                    )
+                );
+                xDoc.Save(highResToolConfigXmlPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+
+        private void getAppSettings()
+        {
+            //if highResToolConfigXmlPath does not exist, create it
+            if (!System.IO.File.Exists(highResToolConfigXmlPath))
+            {
+                creatAppSettingsXml();
+            }
+            else
+            {
+                try
+                {
+                    var xmlDoc = XDocument.Load(highResToolConfigXmlPath);
+                    var steamVersionElement = xmlDoc.Root.Element("SteamVersion");
+                    var nonSteamExecPathElement = xmlDoc.Root.Element("NonSteamExecPAth");
+
+                    if (steamVersionElement != null)
+                    {
+                        steamVersion = (bool)steamVersionElement;
+                    }
+
+                    if (nonSteamExecPathElement != null)
+                    {
+                        nonSteamVersionPath = (string)nonSteamExecPathElement;
+                    }
+                }
+                catch
+                {
+                    MessageBox.Show("Error reading HighResToolConfig.xml", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
 
         private void getSettings()
         {
@@ -82,6 +152,21 @@ namespace OperationFlashPointVideoConfig
                 // Read refresh rate
                 var refreshRate = resolution.Element("refreshRate");
                 currentRefreshRate = (int)refreshRate.Attribute("rate");
+            }
+        }
+
+        private void saveAppSettings()
+        {
+            try
+            {
+                XDocument xDoc = XDocument.Load(highResToolConfigXmlPath);
+                xDoc.Root.Element("SteamVersion").Value = steamVersion.ToString();
+                xDoc.Root.Element("NonSteamExecPAth").Value = nonSteamVersionPath;
+                xDoc.Save(highResToolConfigXmlPath);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -159,30 +244,20 @@ namespace OperationFlashPointVideoConfig
                 detectedDisplayModes.Add(new DisplayMode(bounds.Width, bounds.Height));
             }
 
-
             List<DisplayMode> extraDisplayModes = new List<DisplayMode>();
 
             //add extra resolutions
-            foreach (var mode in detectedDisplayModes)
+            for (int i = 0; i < detectedDisplayModes.Count; i++)
             {
-                List<DisplayMode> newModes = new List<DisplayMode>();
-
-                newModes.Add(new DisplayMode((int)(mode.width * 0.75), (int)(mode.height * 0.75)));
-                newModes.Add(new DisplayMode((int)(mode.width * 0.5), (int)(mode.height * 0.5)));
-
-                foreach (var newMode in newModes)
-                {
-                    if (newMode.width > 1280 && newMode.height > 1024)
-                    {
-                        extraDisplayModes.Add(newMode);
-                    }
-                }
+                extraDisplayModes.Add(new DisplayMode((int)(detectedDisplayModes[i].width * 0.75), (int)(detectedDisplayModes[i].height * 0.75)));
+                extraDisplayModes.Add(new DisplayMode((int)(detectedDisplayModes[i].width * 0.5), (int)(detectedDisplayModes[i].height * 0.5)));
             }
 
             detectedDisplayModes.AddRange(extraDisplayModes);
 
             //removed doubles up in the list
             displayModes = detectedDisplayModes
+                .Where(dm => dm.width > 1280 && dm.height > 720)
                 .Select(dm => new { dm.width, dm.height })
                 .Distinct()
                 .Select(dm => new DisplayMode(dm.width, dm.height))
@@ -199,9 +274,36 @@ namespace OperationFlashPointVideoConfig
             string[] files = System.IO.Directory.GetFiles(ofdrPath, "*.xml");
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
             saveSettings();
+            saveAppSettings();
+        }
+
+        private void buttonLaunch_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Process.Start(new ProcessStartInfo
+                {
+                    FileName = steamVersion ? steamUri : nonSteamVersionPath,
+                    UseShellExecute = true
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void checkBoxSteam_CheckedChanged(object sender, EventArgs e)
+        {
+            steamVersion = checkBoxSteam.Checked;
+            if (!checkBoxSteam.Checked)
+            {
+                configForm = new ConfigForm(this);
+                configForm.Show();
+            }
         }
     }
 

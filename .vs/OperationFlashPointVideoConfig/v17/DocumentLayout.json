@@ -1,0 +1,107 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|d:\\work\\ofdr-video\\operationflashpointvideoconfig\\ofdrhighres\\operationflashpointvideoconfig\\mainappform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|solutionrelative:operationflashpointvideoconfig\\mainappform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|d:\\work\\ofdr-video\\operationflashpointvideoconfig\\ofdrhighres\\operationflashpointvideoconfig\\configform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|solutionrelative:operationflashpointvideoconfig\\configform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|d:\\work\\ofdr-video\\operationflashpointvideoconfig\\ofdrhighres\\operationflashpointvideoconfig\\mainappform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|solutionrelative:operationflashpointvideoconfig\\mainappform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|d:\\work\\ofdr-video\\operationflashpointvideoconfig\\ofdrhighres\\operationflashpointvideoconfig\\configform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|solutionrelative:operationflashpointvideoconfig\\configform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|d:\\work\\ofdr-video\\operationflashpointvideoconfig\\ofdrhighres\\operationflashpointvideoconfig\\mainappform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5A307B25-3AF1-4119-B0C9-1DF4230F108F}|OperationFlashPointVideoConfig\\OperationFlashPointVideoConfig.csproj|solutionrelative:operationflashpointvideoconfig\\mainappform.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ConfigForm.cs",
+              "DocumentMoniker": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\ConfigForm.cs",
+              "RelativeDocumentMoniker": "OperationFlashPointVideoConfig\\ConfigForm.cs",
+              "ToolTip": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\ConfigForm.cs",
+              "RelativeToolTip": "OperationFlashPointVideoConfig\\ConfigForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAACQAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T09:07:00.816Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "MainAppForm.cs",
+              "DocumentMoniker": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\MainAppForm.cs",
+              "RelativeDocumentMoniker": "OperationFlashPointVideoConfig\\MainAppForm.cs",
+              "ToolTip": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\MainAppForm.cs",
+              "RelativeToolTip": "OperationFlashPointVideoConfig\\MainAppForm.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABoAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T22:02:58.359Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ConfigForm.cs [Design]",
+              "DocumentMoniker": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\ConfigForm.cs",
+              "RelativeDocumentMoniker": "OperationFlashPointVideoConfig\\ConfigForm.cs",
+              "ToolTip": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\ConfigForm.cs [Design]",
+              "RelativeToolTip": "OperationFlashPointVideoConfig\\ConfigForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T08:46:56.643Z",
+              "EditorCaption": " [Design]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "MainAppForm.Designer.cs",
+              "DocumentMoniker": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\MainAppForm.Designer.cs",
+              "RelativeDocumentMoniker": "OperationFlashPointVideoConfig\\MainAppForm.Designer.cs",
+              "ToolTip": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\MainAppForm.Designer.cs",
+              "RelativeToolTip": "OperationFlashPointVideoConfig\\MainAppForm.Designer.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABQAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-05T03:13:09.566Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MainAppForm.cs [Design]",
+              "DocumentMoniker": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\MainAppForm.cs",
+              "RelativeDocumentMoniker": "OperationFlashPointVideoConfig\\MainAppForm.cs",
+              "ToolTip": "D:\\work\\OFDR-Video\\OperationFlashPointVideoConfig\\OFDRHighRes\\OperationFlashPointVideoConfig\\MainAppForm.cs [Design]",
+              "RelativeToolTip": "OperationFlashPointVideoConfig\\MainAppForm.cs [Design]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-08-04T22:02:48.994Z",
+              "EditorCaption": " [Design]"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
